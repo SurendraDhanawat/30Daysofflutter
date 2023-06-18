@@ -19,7 +19,7 @@ class _LoginPageState extends State<LoginPage> {
             child: Column(
           children: [
             Image.asset(
-              "assets/images/login_image.png",
+              "assets/images/hey.png",
               fit: BoxFit.cover,
             ),
             SizedBox(
@@ -55,39 +55,36 @@ class _LoginPageState extends State<LoginPage> {
                   SizedBox(
                     height: 40.0,
                   ),
-                  InkWell(
-                      onTap: () async {
-                        setState(() {
-                          changButton = true;
-                        });
-                        await Future.delayed(Duration(seconds: 1));
-                        Navigator.pushNamed(context, MyRoutes.homeRoute);
-                      },
-                      child: AnimatedContainer(
-                        duration: Duration(seconds: 1),
-                        width: changButton ? 50 : 150,
-                        height: 40,
-                        alignment: Alignment.center,
-                        child: changButton
-                            ? Icon(
-                                Icons.done,
-                                color: Colors.white,
-                              )
-                            : Text(
-                                "Login",
-                                style: TextStyle(
-                                    color: Colors.white,
-                                    fontWeight: FontWeight.bold,
-                                    fontSize: 18),
-                              ),
-                        decoration: BoxDecoration(
-                            color: Colors.deepPurple,
-                            // shape: changButton
-                            //     ? BoxShape.circle
-                            //     : BoxShape.rectangle,
-                            borderRadius:
-                                BorderRadius.circular(changButton ? 50 : 8)),
-                      )),
+                  Material(
+                    color: Colors.deepPurple,
+                    borderRadius: BorderRadius.circular(changButton ? 50 : 8),
+                    child: InkWell(
+                        onTap: () async {
+                          setState(() {
+                            changButton = true;
+                          });
+                          await Future.delayed(Duration(seconds: 1));
+                          Navigator.pushNamed(context, MyRoutes.homeRoute);
+                        },
+                        child: AnimatedContainer(
+                          duration: Duration(seconds: 1),
+                          width: changButton ? 50 : 150,
+                          height: 40,
+                          alignment: Alignment.center,
+                          child: changButton
+                              ? Icon(
+                                  Icons.done,
+                                  color: Colors.white,
+                                )
+                              : Text(
+                                  "Login",
+                                  style: TextStyle(
+                                      color: Colors.white,
+                                      fontWeight: FontWeight.bold,
+                                      fontSize: 18),
+                                ),
+                        )),
+                  )
                   // ElevatedButton(
                   //   child: Text("Login"),
                   //   style: TextButton.styleFrom(minimumSize: Size(150, 40)),
