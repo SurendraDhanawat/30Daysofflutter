@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../widgets/drawer.dart';
+
 class HomePage extends StatelessWidget {
   final int days = 30;
   final String name = "Surendra";
@@ -19,7 +21,7 @@ class HomePage extends StatelessWidget {
         ),
       ),
       // ignore: prefer_const_constructors
-      drawer: Drawer(),
+      drawer: MyDrawer(),
     );
   }
 }
